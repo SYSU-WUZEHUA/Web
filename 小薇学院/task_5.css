@@ -1,0 +1,146 @@
+#container{
+	margin:0;
+	padding:0;
+	width:100%;
+}
+#header{
+	position:relative;
+	width:100%;
+	height:50px;
+	background-color:rgb(51,51,51);
+}
+#logo{
+	position:absolute;
+	height:25px;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	padding-left:5%;
+}
+.header_ul{
+	position:absolute;
+	right:3%;
+}
+.header_li{
+	display:inline;
+}
+.header_a:link{
+	color:grey;
+	text-decoration:none;
+}
+.header_a:visited{
+	color:white;
+	text-decoration:none;
+}
+
+.header_a:before{
+	content:"•";
+	color:black;
+}
+#side{
+	width:300px;
+	float:right;
+	margin-top:2%;
+	margin-left:20px;
+	margin-right:20px;
+	padding:10px;
+	box-shadow:inset 1px 1px 2px #808080,5px 5px 4px #808080;
+}
+#side_title{
+	position:relative;
+}
+#line{
+	width:2px;
+	height:30px;
+	background-color:rgb(204,204,204);
+}
+#side_title h1{
+	position:absolute;
+	top:-5px;
+	left:10px;
+	font-size:18px;
+	font-weight:bold;
+}
+form{
+	font-size:15px;
+	color:rgb(0,0,0);
+}
+label{
+	display:inline-block;
+	width:110px;
+	text-align:right;
+}
+span{
+	color:rgb(200,200,200);
+}
+#button{
+	background-color:blue;
+	color:white;
+	text-align:center;
+	font-weight:bold;
+	border-radius:5px;
+	padding:5px;
+}
+#left{
+	margin-left:20px;
+	margin-right:370px;
+	margin-top:2%;
+}
+article{
+	margin-bottom:2%;
+	padding:2%;
+	box-shadow:inset 1px 1px 2px #808080,5px 5px 4px #808080;
+}
+article h1{
+	font-size:25px;
+	font-weight:bolder;
+}
+article h2{
+	font-size:18px;
+	color:rgb(110,110,110);
+}
+.author{
+	font-size:12px;
+	color:rgb(110,110,110);
+}
+ article p{
+	font-size:18px;
+	color:rgb(0,0,0);
+	text-indent:2em;
+}
+#article_ul{
+	list-style-type:none;
+	margin:0;
+}
+.article_li,ol,#table_description{
+	font-size:18px;
+	color:rgb(0,0,0);
+}
+figure{
+	width:300px;
+	padding:10px;
+	display:inline-block;
+	text-align:center;
+	border:1px solid grey;
+	font-size:15px;
+	color:rgb(110,110,110);
+}
+table{
+	width:100%;
+	border-collapse:collapse;
+	font-size:18px;
+	color:rgb(0,0,0);
+}
+td{
+	padding:5px;
+}
+thead{
+	color:white;
+	font-weight:bold;
+	background-color:rgb(52,52,52);
+}
+tfoot{
+	font-weight:bold;
+	background-color:rgb(204,204,204);
+}
+
