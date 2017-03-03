@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 4</title>
+	<style>
+		button{
+			background-color:white;
+			border:1px solid grey;
+			border-radius:5px;
+		}
+		#left_out{
+			margin-left:2rem;
+		}
+	</style>
+	<script type="text/javascript">
+		function leftIn(){
+			var inputTag=document.getElementById("input_number");
+			/*var regex = /^\d+$/;
+			if(regex.test(inputTag.value)){
+				if()
+			}*/
+			if(parseInt(inputTag.value)<10 || parseInt(inputTag.value)>100){
+				alert("限制输入的数字在10-100");
+			}
+			else{
+				var divTag=document.getElementById("display");
+				if(divTag.childNodes.length>60){
+					alert("队列元素数量最多限制为60个");
+				}
+				else{
+					var Tag=document.createElement("span");
+					var style=document.createAttribute("style");
+					style.value="display:inline-block;width:10px;height:"+parseInt(inputTag.value)+"px;background-color:red;margin-right:5px;";
+					Tag.setAttributeNode(style);
+					if(divTag.childNodes.length==0)divTag.appendChild(Tag);
+					else divTag.insertBefore(Tag,divTag.firstElementChild);
+				}
+			}
+		}
+		function rightIn(){
+			var inputTag=document.getElementById("input_number");
+			if(parseInt(inputTag.value)<10||parseInt(inputTag.value)>100){
+				alert("限制输入的数字在10-100");
+			}
+			else{
+				var divTag=document.getElementById("display");
+				if(divTag.childNodes.length>60){
+					alert("队列元素数量最多限制为60个");
+				}
+				else{
+					var Tag=document.createElement("span");
+					var style=document.createAttribute("style");
+					style.value="display:inline-block;width:10px;height:"+parseInt(inputTag.value)+"px;background-color:red;margin-right:5px;";
+					Tag.setAttributeNode(style);
+					divTag.appendChild(Tag);
+				}
+			}
+		}
+		function leftOut(){
+			var divTag=document.getElementById("display");
+			divTag.removeChild(divTag.firstElementChild);
+		}
+		function rightOut(){
+			var divTag=document.getElementById("display");
+			divTag.removeChild(divTag.lastElementChild);
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="input_number"/>
+	<button type="submit" id="left_in" onclick="leftIn()">左侧入</button>
+	<button type="submit" id="right_in" onclick="rightIn()">右侧入</button>
+	<button type="submit" id="left_out" onclick="leftOut()">左侧出</button>
+	<button type="submit" id="right_out" onclick="rightOut()">右侧出</button>
+	<div id="display"></div>
+</body>
+</html>
