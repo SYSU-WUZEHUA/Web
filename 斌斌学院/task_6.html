@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 4</title>
+	<style>
+		button{
+			background-color:white;
+			border:1px solid grey;
+			border-radius:5px;
+		}
+		#left_out{
+			margin-left:2rem;
+		}
+	</style>
+	<script type="text/javascript">
+		function tab(obj){
+  			if(event.keyCode==9)
+  			{
+     			obj.value=obj.value+"	"; 
+     			event.returnValue=false;
+  			}
+		}
+		function leftIn(){
+			var inputTag=document.getElementById("input_text");
+			var divTag=document.getElementById("display");
+			var input_text=inputTag.value;
+			var reCat = new RegExp("、|\s");
+			var text_split=input_text.split(/、|,|，| | |[\t\n\r\f\v]/);
+			for(var i=0;i<text_split.length;++i){
+				var Tag=document.createElement("span");
+				var text=document.createTextNode(text_split[i]);
+				Tag.appendChild(text);
+				var style=document.createAttribute("style");
+				style.value="display:inline-block;color:white;background-color:red;margin-right:5px;padding:5px;";
+				Tag.setAttributeNode(style);
+				if(divTag.childNodes.length==0)divTag.appendChild(Tag);
+				else divTag.insertBefore(Tag,divTag.firstElementChild);
+			}
+		}
+		function rightIn(){
+			var inputTag=document.getElementById("input_text");
+			var divTag=document.getElementById("display");
+			var input_text=inputTag.value;
+			var reCat = new RegExp("、|\s");
+			var text_split=input_text.split(/、|,|，| | |[\t\n\r\f\v]/);
+			for(var i=0;i<text_split.length;++i){
+				var Tag=document.createElement("span");
+				var text=document.createTextNode(text_split[i]);
+				Tag.appendChild(text);
+				var style=document.createAttribute("style");
+				style.value="display:inline-block;color:white;background-color:red;margin-right:5px;padding:5px;";
+				Tag.setAttributeNode(style);
+				divTag.appendChild(Tag);
+			}
+		}
+		function leftOut(){
+			var divTag=document.getElementById("display");
+			divTag.removeChild(divTag.firstElementChild);
+		}
+		function rightOut(){
+			var divTag=document.getElementById("display");
+			divTag.removeChild(divTag.lastElementChild);
+		}
+		function search_key(){
+			var key=document.getElementById("search_text").value;
+			var re = new RegExp(key);
+			var divTag=document.getElementById("display");
+			for(var i=0;i<divTag.childNodes.length;++i){
+				var s=divTag.childNodes[i].innerHTML;
+				if(s.search(re)!=-1){
+					divTag.childNodes[i].style.color="green";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<textarea id="input_text" onkeydown="tab(this)"></textarea>
+	<button type="submit" id="left_in" onclick="leftIn()">左侧入</button>
+	<button type="submit" id="right_in" onclick="rightIn()">右侧入</button>
+	<button type="submit" id="left_out" onclick="leftOut()">左侧出</button>
+	<button type="submit" id="right_out" onclick="rightOut()">右侧出</button>
+	<div id="display"></div>
+	<input type="text" id="search_text">
+	<button type="submit" onclick="search_key()">查询</button>
+</body>
+</html>
